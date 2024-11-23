@@ -30,7 +30,7 @@ class BrowseFragment : VerticalGridSupportFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        title = "Movie Folders"
+        title = "RSG MOVIES"
         gridPresenter = VerticalGridPresenter(FocusHighlight.ZOOM_FACTOR_MEDIUM, false).apply {
             numberOfColumns = this@BrowseFragment.numberOfColumns
         }

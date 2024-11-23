@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
@@ -18,7 +19,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class FolderDetailActivity : FragmentActivity(), Player.Listener {
+class FolderDetailActivity : AppCompatActivity (), Player.Listener {
 
     private lateinit var exoPlayer: ExoPlayer
     private lateinit var playerView: PlayerView
@@ -46,6 +47,8 @@ class FolderDetailActivity : FragmentActivity(), Player.Listener {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         initializePlayer()
         setupCustomControls()
+        playerView.requestFocus()
+
 
         val folder = intent.getParcelableExtra<Folder>("folder_data")
         folder?.let {
@@ -69,10 +72,10 @@ class FolderDetailActivity : FragmentActivity(), Player.Listener {
         playerView = findViewById(R.id.player_view)
 
         trackSelector = DefaultTrackSelector(this).apply {
-            setParameters(buildUponParameters()
-                .setPreferredTextLanguage("")
-                .setPreferredAudioLanguage("te")
-//                .setSelectUndeterminedTextLanguage(true)
+            setParameters(
+                buildUponParameters()
+                    .setPreferredTextLanguage("")
+                    .setPreferredAudioLanguage("te")
             )
         }
 
@@ -88,17 +91,19 @@ class FolderDetailActivity : FragmentActivity(), Player.Listener {
         playerView.setControllerAutoShow(true)
         playerView.controllerShowTimeoutMs = 3000 // Controls auto-hide after 3 seconds
 
+        val customControls = listOf(
+            findViewById<ImageButton>(R.id.exo_playback_speed),
+            findViewById<ImageButton>(R.id.exo_track_selection),
+            findViewById<ImageButton>(R.id.exo_aspect_ratio),
+            findViewById<ImageButton>(R.id.exo_volume_control)
+        )
+
         // Add listener to synchronize custom control visibility with default controls
         playerView.setControllerVisibilityListener { visibility ->
-            val customControls = listOf(
-                findViewById<ImageButton>(R.id.exo_playback_speed),
-                findViewById<ImageButton>(R.id.exo_track_selection),
-                findViewById<ImageButton>(R.id.exo_aspect_ratio),
-                findViewById<ImageButton>(R.id.exo_volume_control)
-            )
             customControls.forEach { it.visibility = visibility }
         }
     }
+
 
     private fun setupCustomControls() {
         findViewById<ImageButton>(R.id.exo_playback_speed)?.setOnClickListener {

@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/rocks/.gradle/caches/transforms-3/eed9bc8b94db7b381567be7499fbf555/transformed/exoplayer-ui-2.19.1/res/layout/exo_player_control_view.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/drawable/button_drawable.xml" value="0.2265" />
+        <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/drawable/button_focus_background.xml" value="0.2265" />
+        <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/drawable/pink_button_selector.xml" value="0.12" />
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/activity_all_movies.xml" value="0.1" />
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/activity_files.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/activity_folder_detail.xml" value="0.1" />
@@ -13,6 +15,8 @@
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/activity_movierulz.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/card_item.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/custom_controller.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/custom_playback_control_view.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/dialog_volume_control.xml" value="0.25" />
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/folder_item.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/fragment_browser.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/rocks/AndroidStudioProjects/RSGMOVIES2/app/src/main/res/layout/fragment_home.xml" value="0.10989583333333333" />

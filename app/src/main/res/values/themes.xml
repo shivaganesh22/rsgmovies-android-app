@@ -4,7 +4,11 @@
     <style name="Theme.RSGMOVIES.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
         <!-- Other theme attributes -->
+
     </style>
+
+
 
 </resources>
