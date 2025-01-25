@@ -18,6 +18,7 @@ class FolderAdapter : Presenter() {
         val folder = item as Folder
         val textView = viewHolder.view as TextView
         textView.text = folder.name
+
     }
 
     override fun onUnbindViewHolder(viewHolder: ViewHolder) {

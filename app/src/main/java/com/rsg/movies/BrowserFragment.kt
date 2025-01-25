@@ -42,7 +42,7 @@ class BrowseFragment : VerticalGridSupportFragment() {
         setItemClickListener()
 
         // Start periodic fetching of folders
-        handler.postDelayed(apiFetchRunnable, 5000) // Fetch every 5 seconds
+        handler.postDelayed(apiFetchRunnable, 20000) // Fetch every 10 seconds
     }
 
     private fun loadFolders() {
@@ -87,6 +87,6 @@ class BrowseFragment : VerticalGridSupportFragment() {
     override fun onResume() {
         super.onResume()
         // Restart periodic fetching when the fragment is visible again
-        handler.postDelayed(apiFetchRunnable, 5000)
+        handler.postDelayed(apiFetchRunnable, 20000)
     }
 }

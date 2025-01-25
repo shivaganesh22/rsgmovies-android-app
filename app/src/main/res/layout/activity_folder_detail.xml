@@ -34,6 +34,17 @@
             android:focusableInTouchMode="true"
             android:background="@drawable/pink_button_selector"
             android:padding="8dp" />
+        <ImageButton
+            android:id="@+id/exo_track_selection"
+            style="@style/ExoMediaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Track Selection"
+            android:src="@drawable/exo_icon_tracks"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/pink_button_selector"
+            android:padding="8dp" />
         <!-- Playback Speed Button -->
         <ImageButton
             android:id="@+id/exo_playback_speed"
@@ -48,17 +59,7 @@
             android:padding="8dp" />
 
         <!-- Track Selection Button -->
-        <ImageButton
-            android:id="@+id/exo_track_selection"
-            style="@style/ExoMediaButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Track Selection"
-            android:src="@drawable/exo_icon_tracks"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:background="@drawable/pink_button_selector"
-            android:padding="8dp" />
+
 
         <!-- Aspect Ratio Button -->
 

@@ -25,7 +25,7 @@ class FolderDetailActivity : AppCompatActivity (), Player.Listener {
     private lateinit var playerView: PlayerView
 
     private lateinit var trackSelector: DefaultTrackSelector
-    private val playbackSpeeds = arrayOf(0.25f, 0.5f, 0.75f, 1f, 1.25f, 1.5f, 2f)
+    private val playbackSpeeds = arrayOf(0.25f, 0.5f, 0.75f, 1f, 1.25f, 1.5f,1.75f, 2f)
     private val aspectRatios = arrayOf(
         "Fit", "Zoom", "Fill", "Fixed Width", "Fixed Height"
     )
@@ -89,7 +89,7 @@ class FolderDetailActivity : AppCompatActivity (), Player.Listener {
 
         playerView.player = exoPlayer
         playerView.setControllerAutoShow(true)
-        playerView.controllerShowTimeoutMs = 3000 // Controls auto-hide after 3 seconds
+        playerView.controllerShowTimeoutMs = 5000 // Controls auto-hide after 3 seconds
 
         val customControls = listOf(
             findViewById<ImageButton>(R.id.exo_playback_speed),
@@ -246,7 +246,7 @@ class FolderDetailActivity : AppCompatActivity (), Player.Listener {
 
 
     private fun autoHideControls() {
-        playerView.controllerShowTimeoutMs = 3000
+        playerView.controllerShowTimeoutMs = 5000
         playerView.controllerAutoShow = true
     }
 
@@ -327,6 +327,22 @@ class FolderDetailActivity : AppCompatActivity (), Player.Listener {
         val mediaItem = MediaItem.fromUri(videoUrl)
         exoPlayer.setMediaItem(mediaItem)
         exoPlayer.prepare()
+        exoPlayer.addListener(object : Player.Listener {
+            override fun onPlayerError(error: PlaybackException) {
+                super.onPlayerError(error)
+                var errorMessage = "Playback error: ${error.message}"
+                when (error.errorCode) {
+                    PlaybackException.ERROR_CODE_IO_NETWORK_CONNECTION_FAILED ->
+                        errorMessage = "Network connection failed"
+                    PlaybackException.ERROR_CODE_IO_FILE_NOT_FOUND ->
+                        errorMessage = "Video file not found"
+                    PlaybackException.ERROR_CODE_DECODING_FAILED ->
+                        errorMessage = "Error decoding video"
+                    // Add more specific error codes as needed
+                }
+                showError(errorMessage)
+            }
+        })
     }
 
     override fun onDestroy() {
@@ -350,5 +366,8 @@ class FolderDetailActivity : AppCompatActivity (), Player.Listener {
         val name: String,
         val result: Boolean
     )
-
+    private fun showError(message: String) {
+        Toast.makeText(this@FolderDetailActivity, message, Toast.LENGTH_LONG).show()
+        // You might also want to log the error or show a more detailed error message in a dialog
+    }
 }
